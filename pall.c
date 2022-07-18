@@ -1,13 +1,20 @@
 #include "monty.h"
-
 /**
- * pall - prints the stack
- * @stack: stack given by main in start.c
- * @line_cnt: amount of lines
- *
- * Return: void
- */
-void pall(stack_t **stack, unsigned int line_cnt __attribute__((unused)))
+ * _pall - prints all the elements of a stack_t list
+ * @h: head in the dobly linked list
+ * Return: the number of nodes
+ **/
+stack_t _pall(const stack_t *h)
 {
-	print_stack(*stack);
+	size_t i = 0;
+
+	if (h == NULL)
+		return (NULL);
+	while (h != NULL)
+	{
+		i++;
+		printf("%d\n", h->n);
+		h = h->next;
+	}
+	return (NULL);
 }
