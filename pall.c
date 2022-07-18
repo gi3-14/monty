@@ -1,20 +1,26 @@
 #include "monty.h"
-/**
- * _pall - prints all the elements of a stack_t list
- * @h: head in the dobly linked list
- * Return: the number of nodes
- **/
-stack_t _pall(const stack_t *h)
-{
-	size_t i = 0;
 
-	if (h == NULL)
-		return (NULL);
-	while (h != NULL)
+/**
+ * m_pall - print all values on `stack' starting from the top
+ * @stack: double pointer to head of stack
+ * @line_number: line number being executed from script file
+ *
+ * Return: void
+ */
+void m_pall(stack_t **stack, unsigned int line_number)
+{
+	stack_t *head;
+
+	(void)(line_number);
+
+	head = *stack;
+	while (head != NULL)
 	{
-		i++;
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", head->n);
+		head = head->next;
+		if (head == *stack)
+		{
+			return;
+		}
 	}
-	return (NULL);
 }
